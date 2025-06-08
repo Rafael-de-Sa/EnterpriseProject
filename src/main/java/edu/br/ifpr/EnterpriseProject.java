@@ -1,8 +1,9 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
-
 package edu.br.ifpr;
+
+import edu.br.ifpr.seeder.DatabaseSeeder;
 
 /**
  *
@@ -11,6 +12,8 @@ package edu.br.ifpr;
 public class EnterpriseProject {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+
+        DatabaseSeeder.run();
+
     }
 }
