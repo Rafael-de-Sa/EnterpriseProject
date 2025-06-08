@@ -11,6 +11,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import java.time.LocalDate;
 import java.util.LinkedList;
@@ -41,6 +44,32 @@ public class Employees {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
     private List<Badges> badges;
+
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(name = "projects_employees", joinColumns = @JoinColumn(name = "employee_id", nullable = false), inverseJoinColumns = @JoinColumn(name = "project_id", nullable = false))
+    private List<Projects> projects;
+
+    public List<Projects> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(List<Projects> projects) {
+        this.projects = projects;
+    }
+
+    public void addProject(Projects project) {
+        if (projects == null) {
+            projects = new LinkedList<>();
+        }
+        projects.add(project);
+
+        if (project.getEmployees() == null) {
+            project.setEmployees(new LinkedList<>());
+        }
+        if (!project.getEmployees().contains(this)) {
+            project.getEmployees().add(this);
+        }
+    }
 
     public void addBadge(Badges badge) {
         if (badges == null) {

@@ -11,6 +11,6 @@ package edu.br.ifpr.seeder;
 public class DatabaseSeeder {
 
     public static void run() {
-        BadgesSeeder.seed();
+        FullDatabaseSeeder.seed();
     }
 }

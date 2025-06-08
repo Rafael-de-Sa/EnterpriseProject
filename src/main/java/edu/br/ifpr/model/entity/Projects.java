@@ -12,8 +12,11 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import java.time.LocalDate;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  *
@@ -41,6 +44,32 @@ public class Projects {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "department_id", nullable = false)
     private Departments department;
+
+    @ManyToMany(mappedBy = "projects")
+    private List<Employees> employees;
+
+    public List<Employees> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(List<Employees> employees) {
+        this.employees = employees;
+    }
+
+    public void addEmployee(Employees employee) {
+        if (employees == null) {
+            employees = new LinkedList<>();
+        }
+        employees.add(employee);
+
+        if (employee.getProjects() == null) {
+            employee.setProjects(new LinkedList<>());
+        }
+        if (!employee.getProjects().contains(this)) {
+            employee.getProjects().add(this);
+        }
+
+    }
 
     public Projects() {
     }
