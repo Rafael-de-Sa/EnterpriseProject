@@ -35,6 +35,9 @@ public class Departments {
         return id;
     }
 
+    public Departments() {
+    }
+
     public void setId(int id) {
         this.id = id;
     }
