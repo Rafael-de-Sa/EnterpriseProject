@@ -23,7 +23,7 @@ O projeto implementa um sistema com as seguintes entidades:
 
 ### Diagrama do Banco de Dados
 <div align="center">
-![Diagrama do Banco de Dados](./assets/db_diagram.png)
+![Diagrama do Banco de Dados](./src/main/java/edu/br/ifpr/assets/db_diagram.png)
 </div>
 
 ### Tecnologias Utilizadas
@@ -118,7 +118,7 @@ The project implements a system with the following entities:
 
 ### Database Diagram
 <div align="center">
-![Database Diagram](./assets/db_diagram.png)
+![Database Diagram](./src/main/java/edu/br/ifpr/assets/db_diagram.png)
 </div>
 ### Technologies Used
 - **Java 24**
