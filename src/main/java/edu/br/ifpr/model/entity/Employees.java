@@ -4,8 +4,17 @@
  */
 package edu.br.ifpr.model.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Basic;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import java.time.LocalDate;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  *
@@ -29,6 +38,24 @@ public class Employees {
     @Column(nullable = false, name = "admission_date")
     @Basic
     private LocalDate admissionDate;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
+    private List<Badges> badges;
+
+    public void addBadge(Badges badge) {
+        if (badges == null) {
+            badges = new LinkedList<>();
+        }
+        badges.add(badge);
+    }
+
+    public List<Badges> getBadges() {
+        return badges;
+    }
+
+    public void setBadges(List<Badges> badges) {
+        this.badges = badges;
+    }
 
     public Employees() {
     }
