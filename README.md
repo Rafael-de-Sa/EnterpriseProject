@@ -22,8 +22,11 @@ O projeto implementa um sistema com as seguintes entidades:
 - **Crachás (Badges)**: Sistema de crachás para os funcionários
 
 ### Diagrama do Banco de Dados
+### Diagrama do Banco de Dados
 <div align="center">
+
 ![Diagrama do Banco de Dados](./assets/db_diagram.png)
+
 </div>
 
 ### Tecnologias Utilizadas
@@ -118,7 +121,9 @@ The project implements a system with the following entities:
 
 ### Database Diagram
 <div align="center">
+
 ![Database Diagram](./assets/db_diagram.png)
+
 </div>
 ### Technologies Used
 - **Java 24**
